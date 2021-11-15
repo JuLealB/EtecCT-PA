@@ -1,0 +1,62 @@
+CREATE DATABASE SORVETERIA;
+
+USE SORVETERIA
+
+
+CREATE TABLE tbFornecedor(
+codFornecedor int primary key identity(100,1),
+nomeFornecedor varchar(40),
+contato varchar(20),
+)
+
+create table tbSorvetes(
+codSorvete int primary key indentity(100,1),
+nomeSorvete varchar(40),
+valorSorvete varchar(20),
+codFornecedor int foreign key references tbFornecedor
+)
+
+create table tbFuncionario(
+codFuncionario int primary key indentity(100,1),
+nomeFuncionario varchar(40),
+cpfFuncionario varchar(11,0),
+datanascFuncionario date,
+ruaFuncionario varchar(40),
+numeroFuncionario varchar(20),
+bairroFuncionario varchar(40),
+cidadeFuncionario varchar(40),
+)
+
+create table tbOrdemdeservico(
+codOs int primary key indentity(100,1),
+observacaoOs 
+codFuncionario int foreign key reference tbFuncionario
+codFornecedor int foreign key references tbFornecedo
+)
+   
+INSERT INTO tbFornecedor (nomeFornecedor,)
+values ('Danadoni Lima','(11) 97807-8943',101),
+	   ('Pedro Alves','(11) 939057-890',101),
+	   ('Neymar','(11) 92348-9808',101),
+
+insert into tbSorvetes (nomeSorvete,valorSorvete)
+values ('bombom','22,00'),
+	('morango','22,00'),
+	('chocolate','22,00'),
+
+
+insert into tbFuncionario(nomeFuncionario,cpfFuncionario,datanascFuncionario,ruaFuncionario,numeroFuncionario,bairroFuncionario,cidadeFuncionario)
+values ('Julio','666.666.666-12','04/04','Rua tuiti','(11) 98474-8947','Jardim Soares','São Paulo'),
+	('Laura','555.555.555-12','20/01','Rua Augusta','(11) 99087-3245','Mooca','Santos'),
+	('Benicio','444.444.444-12','18/06','Rua dois','(11) 97437-8372','Jardins','Sorocaba'),
+
+insert into tbOrdemdeServico(observacaoOs)
+values ('Exame'),
+       ('Analise'),
+	('Observar'),	   
+
+	   select * from tbFornecedor
+	   select * from tbSorvetes
+	   select * from tbFuncionario
+	   select * from tbOrdemdeServico
+
